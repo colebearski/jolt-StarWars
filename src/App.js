@@ -12,8 +12,7 @@ import axios from "axios";
 // https://alligator.io/react/axios-react/
 
 // 3. Use `http://localhost:3008/planets` to get the name of each person's
-// home world. (Note that the embed functionality of json-server has been
-//   disabled so that this is necessary).
+// home world.
 
 class App extends Component {
   constructor(props) {
@@ -33,12 +32,28 @@ class App extends Component {
 
     axios.get(`http://localhost:3008/planets`).then(res => {
       const planets = res.data;
-      console.log(planets);
+      // console.log(planets);
       this.setState({ planets });
     });
   }
 
   render() {
+    // destructure
+    const { persons } = this.state;
+    const { planets } = this.state;
+
+    // https://stackoverflow.com/questions/9639065/a-for-loop-that-compares-two-arrays-looking-for-matching-values
+    let matchHome = (homePlanet) => {
+      for (let i = 0; i < planets.length; i++) {
+        for (let j = 0; j < persons.length; j++) {
+          if (planets[i].id === homePlanet) {
+            return planets[i].name;
+          }
+          return "No Planet";
+        }
+      }
+    };
+
     return (
       <div className="content">
         <div className="logo">
@@ -54,7 +69,7 @@ class App extends Component {
               key={persons.id}
               name={persons.name}
               birthday={persons.birth_year}
-              home={persons.homeworld}
+              home={matchHome(persons.homeworld)}
               photo={"http://localhost:3008/" + persons.image}
             />
           );
