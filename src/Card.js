@@ -6,17 +6,23 @@ import "./Card.css";
 
 class Card extends Component {
 
-  editOn(element) {
-    console.log('Hello world')
-    element.preventDefault()
+  state = {
+    showEdit: false
   }
 
+  editOn = element => {
+    element.preventDefault()
+    this.setState({ showEdit:!this.state.showEdit })
+  }
 
   render() {
     const name = this.props.name;
     const photo = this.props.photo;
     const birthday = this.props.birthday;
     const home = this.props.home;
+    
+    // destructure
+    const { showEdit } = this.state;
 
     return (
       <div className="card">
@@ -32,16 +38,18 @@ class Card extends Component {
             <span>Homeworld:</span>
             <span>{home}</span>
           </p>
-
-            <form action="">
-            <button onClick={this.editOn}>Edit</button>
+          <button onClick={this.editOn}>Edit</button>
+          {showEdit ? (          <form action="">
               <hr/>
-              <input type="text"/>
-              <input type="text"/>
-              <input type="text"/>           
+              <input type="text"/> <span>Name</span>
+              <input type="text"/> <span>Birthday</span>
+              <input type="text"/> <span>Homeworld</span>          
               <hr />
               <button>Save</button>
-            </form>
+            </form>) : null}
+            
+            
+  
           
         </div>
       </div>
