@@ -64,7 +64,9 @@ class App extends Component {
           <span className="interview-text">The Interview</span>
           <img src={wars} alt="wars-logo" />
         </div>
-        <SearchBar />
+        <SearchBar 
+        {...this.state.query}
+        />
 
         {this.state.persons.map(persons => {
           return (
