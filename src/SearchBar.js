@@ -6,6 +6,7 @@ import axios from 'axios'
 //  acting on any of their attributes, filtering at the server level and still 
 //  paginating the results
 //  (ref: https://github.com/typicode/json-server#full-text-search).
+// https://dev.to/sage911/how-to-write-a-search-component-with-suggestions-in-react-d20
 
 class SearchBar extends Component {
 

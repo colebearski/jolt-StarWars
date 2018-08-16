@@ -24,6 +24,16 @@ class Card extends Component {
             {/* Note that in order to get the homeworld's name, you have to get the planet name from a different endpoint than the people */}
             <span>Homeworld:</span>
             <span>{home}</span>
+            
+            <form action="">
+            <button>Edit</button>
+              <hr/>
+              <input type="text"/>
+              <input type="text"/>
+              <input type="text"/>           
+              <hr />
+              <button>Save</button>
+            </form>
           </p>
         </div>
       </div>
