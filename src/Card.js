@@ -65,7 +65,9 @@ class Card extends Component {
               <hr/>
               <input type="text"/> <span>Name</span>
               <input type="text"/> <span>Birthday</span>
-              {/* <input type="text"/> <span>Homeworld</span>           */}
+
+              <input type="text"/> <span>Homeworld</span>   
+                     
               <hr />
               <button onClick={this.editSave}>Save</button>
             </form>) : null}
