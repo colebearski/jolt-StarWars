@@ -11,16 +11,30 @@ import axios from "axios";
 // from the API as props.
 // https://alligator.io/react/axios-react/
 
+// 3. Use `http://localhost:3008/planets` to get the name of each person's
+// home world. (Note that the embed functionality of json-server has been
+//   disabled so that this is necessary).
+
 class App extends Component {
-  state = {
-    persons: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      persons: [],
+      planets: []
+    };
+  }
 
   componentDidMount() {
     axios.get(`http://localhost:3008/people`).then(res => {
       const persons = res.data;
       this.setState({ persons });
-      console.log(persons);
+      // console.log(persons);
+    });
+
+    axios.get(`http://localhost:3008/planets`).then(res => {
+      const planets = res.data;
+      console.log(planets);
+      this.setState({ planets });
     });
   }
 
