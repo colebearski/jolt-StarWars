@@ -5,6 +5,13 @@ import "./Card.css";
 // person's name, image, birthday, and home planet.
 
 class Card extends Component {
+
+  editOn(element) {
+    console.log('Hello world')
+    element.preventDefault()
+  }
+
+
   render() {
     const name = this.props.name;
     const photo = this.props.photo;
@@ -24,9 +31,10 @@ class Card extends Component {
             {/* Note that in order to get the homeworld's name, you have to get the planet name from a different endpoint than the people */}
             <span>Homeworld:</span>
             <span>{home}</span>
-            
+          </p>
+
             <form action="">
-            <button>Edit</button>
+            <button onClick={this.editOn}>Edit</button>
               <hr/>
               <input type="text"/>
               <input type="text"/>
@@ -34,7 +42,7 @@ class Card extends Component {
               <hr />
               <button>Save</button>
             </form>
-          </p>
+          
         </div>
       </div>
     );
