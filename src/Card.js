@@ -49,6 +49,12 @@ class Card extends Component {
     return (
       <div className="card">
         <div className="card-content">
+
+        <button className="fal fa-thumbs-up" onClick={this.editFave}>
+        
+        </button>
+        <hr />
+
           <div className="card-name">{name}</div>
           <img src={photo} alt="profile" />
           <p>
