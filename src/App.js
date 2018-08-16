@@ -15,7 +15,12 @@ class App extends Component {
           <img src={wars} alt="wars-logo" />
         </div>
         <SearchBar />
-        <Card name="Greg" birthday="April" home="Mars" />
+        <Card
+          name="Greg"
+          birthday="April"
+          home="Mars"
+          photo="http://localhost:3008/darth_vader.jpg"
+        />
       </div>
     );
   }

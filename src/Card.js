@@ -7,7 +7,7 @@ import "./Card.css";
 class Card extends Component {
   render() {
     const name = this.props.name;
-    // const photo = this.photo.props;
+    const photo = this.props.photo;
     const birthday = this.props.birthday;
     const home = this.props.home;
 
@@ -15,7 +15,7 @@ class Card extends Component {
       <div className="card">
         <div className="card-content">
           <div className="card-name">{name}</div>
-          <img src="http://localhost:3008/darth_vader.jpg" alt="profile" />
+          <img src={photo} alt="profile" />
           <p>
             <span>Birthday:</span>
             <span>{birthday}</span>
