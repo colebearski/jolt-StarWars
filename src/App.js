@@ -14,6 +14,9 @@ import axios from "axios";
 // 3. Use `http://localhost:3008/planets` to get the name of each person's
 // home world.
 
+// 4. Paginate the list of cards using listing no more than 10
+// https://github.com/typicode/json-server#paginate
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:3008/people`).then(res => {
+    axios.get(`http://localhost:3008/people?_page1&_limit=10`).then(res => {
       const persons = res.data;
       this.setState({ persons });
       // console.log(persons);
