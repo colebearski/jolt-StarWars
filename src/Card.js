@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Card.css";
+import axios from 'axios'
 
 // 1. Modify the *Card* component to take props for the
 // person's name, image, birthday, and home planet.
@@ -14,6 +15,27 @@ class Card extends Component {
     element.preventDefault()
     this.setState({ showEdit:!this.state.showEdit })
   }
+
+  editSave = element => {
+    element.preventDefault();
+    // console.log("Hello World")
+    this.setState({
+      name: event.target.value,
+      birthday: event.target.value
+    })
+
+    const user = {
+      name: this.state.name,
+      birthday: this.state.birthday
+    }
+
+    axios.patch(`http://localhost:3008/people`, { user }).then(res => {
+      console.log(res.data);
+
+    })
+  }
+
+  
 
   render() {
     const name = this.props.name;
@@ -45,7 +67,7 @@ class Card extends Component {
               <input type="text"/> <span>Birthday</span>
               {/* <input type="text"/> <span>Homeworld</span>           */}
               <hr />
-              <button>Save</button>
+              <button onClick={this.editSave}>Save</button>
             </form>) : null}
             
             
